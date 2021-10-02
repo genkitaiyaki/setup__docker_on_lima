@@ -1,4 +1,4 @@
-# setup_lima
+# setup__docker_on_lima
 
 私用のmacbookにlimaを導入したときのメモ
 
