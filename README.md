@@ -12,7 +12,7 @@
 
 ## なぜlimaが必要？
 
-　- 今までコンテナ環境使って開発するときは、Docker for Desktopを使っていた。
+- 今までコンテナ環境使って開発するときは、Docker for Desktopを使っていた。
 - ある日一部の利用者はお金がかかるようになってしまった。
 
 > <https://www.docker.com/legal/docker-subscription-service-agreement>
