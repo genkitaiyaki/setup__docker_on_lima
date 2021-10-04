@@ -1,6 +1,6 @@
 # setup__docker_on_lima
 
-　私用のmacbookにlimaを導入したときのメモ
+私用のmacbookにlimaを導入したときのメモ
 
 ## limaとは？
 
@@ -26,4 +26,20 @@
 
 ```bash
 brew install lima docker
+```
+
+## dockerの起動
+
+- 公式からdockerの設定ファイルを拝借しdockerを起動
+  - > <https://github.com/lima-vm/lima/blob/15aba00bbb85e64c3e17ea3611b39b6503727064/examples/docker.yaml>
+  - 基本的に流用しているがdiskサイズは20GBに変えた
+
+```bash
+limactl start ./docker.yaml
+```
+
+- 以下の出力が出ればOK
+
+```bash
+INFO[0375] READY. Run `limactl shell docker` to open the shell. 
 ```
