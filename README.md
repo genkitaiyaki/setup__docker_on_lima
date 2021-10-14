@@ -25,7 +25,7 @@
 - Homebrewを使ってlimaとdockerを入れる
 
 ```bash
-brew install lima docker
+❯ brew install lima docker
 ```
 
 ## dockerの起動
@@ -35,11 +35,44 @@ brew install lima docker
   - 基本的に流用しているがdiskサイズは20GBに変えた
 
 ```bash
-limactl start ./docker.yaml
+❯ limactl start ./docker.yaml
 ```
 
 - 以下の出力が出ればOK
 
 ```bash
-INFO[0375] READY. Run `limactl shell docker` to open the shell. 
+❯ INFO[0375] READY. Run `limactl shell docker` to open the shell. 
+```
+
+## 環境変数の設定
+
+- docker.yamlに書かれているヒントをもとに環境変数の設定をしていく
+
+> Hint: To allow `docker` CLI on the host to connect to the Docker daemon running inside the guest,
+> add `NoHostAuthenticationForLocalhost yes` in ~/.ssh/config , and then run the following commands:
+
+- DOCKER_HOSTを書き換える
+
+```bash
+❯ export DOCKER_HOST=ssh://docker_localhost:60006
+```
+
+- ssh/configにNoHostAuthenticationForLocalhost yesを書き足す
+
+```bash
+❯ vi ~/.ssh/config
+```
+
+```TEXT
+Host docker_localhost
+  HostName {PCのローカルホスト名}
+  User {PCにログインしているユーザ名}
+  NoHostAuthenticationForLocalhost yes
+  Port 60006
+```
+
+## 動作確認
+
+```bash
+❯ docker version
 ```
