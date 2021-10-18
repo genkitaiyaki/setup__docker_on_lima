@@ -58,6 +58,8 @@
 ```
 
 - ssh/configにNoHostAuthenticationForLocalhost yesを書き足す
+- macosの場合ローカルホスト名は「xxx.local」の方だから注意
+  - sshの公開鍵でホスト名確認するのが一番確実
 
 ```bash
 ❯ vi ~/.ssh/config
@@ -71,7 +73,18 @@ Host docker_localhost
   Port 60006
 ```
 
+- ちなみに起動時に~/.ssh/*.pubを読み込むらしい
+- ここに気づかず大分時間を無駄にしてしまった、、
+
+```bash
+  # Load ~/.ssh/*.pub in addition to $LIMA_HOME/_config/user.pub , for allowing DOCKER_HOST=ssh:// .
+  # This option is enabled by default.
+  # If you have an insecure key under ~/.ssh, do not use this option.
+```
+
 ## 動作確認
+
+- 特にエラーなくバージョン情報が出れば成功
 
 ```bash
 ❯ docker version
